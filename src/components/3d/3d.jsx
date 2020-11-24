@@ -9,7 +9,9 @@ function Orco(props) {
     roughness: 0.5,
     metalness: 0,
     color: "moccasin",
-    emissive: 0
+    emissive: 0,
+    transparent: true,
+    opacity: 0.85
   });
   return (
     <group ref={group} {...props} dispose={null}>
