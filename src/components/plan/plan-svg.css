@@ -1,0 +1,82 @@
+:root {
+  --bleu-turquoise: #1bb7bf;
+  --bleu-sombre: #3f51b5;
+}
+
+#plan-svg {
+  z-index: 2000;
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  width: 350px;
+  height: 350px;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.3s;
+  transform: rotateZ(-45deg);
+  /* background-blend-mode: overlay; */
+}
+
+#plans {
+  padding: 0;
+}
+
+.parois {
+  stroke: none;
+  fill: #fff;
+}
+
+.lignes {
+  stroke: #fff;
+  fill: none;
+}
+
+.escalier {
+  stroke: #fff;
+  fill: none;
+}
+
+.marches {
+  stroke: #fff;
+  fill: none;
+}
+
+.scene {
+  fill: none;
+  stroke: none;
+  stroke-width: 10px;
+  pointer-events: fill;
+  pointer-events: stroke;
+  transition: fill 0.3s;
+}
+.scene .is-active path:hover {
+  fill: blue;
+  stroke: blue;
+  opacity: 1;
+  visibility: visible;
+  transition: fill 0.3s;
+}
+
+#compass {
+  z-index: 2001;
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.compass-off {
+  visibility: hidden;
+}
+
+#compass #cone-vision {
+  stroke: var(--bleu-turquoise);
+  fill: var(--bleu-turquoise);
+  fill-opacity: 1;
+  /* filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25)); */
+}
+#cone {
+  fill-opacity: 0.25;
+  filter: drop-shadow(2px 0px 2px rgba(0, 0, 0, 0.3));
+}
