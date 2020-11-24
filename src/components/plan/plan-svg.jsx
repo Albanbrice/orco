@@ -1,9 +1,12 @@
+import React, { useMemo } from "react";
 import { useStore } from "../../store";
 import "./plan-svg.css";
 
-function normalize(min, max, val) {
-  return (val - min) / (max - min);
-}
+const xmin = -13.535;
+const ymin = -18.565;
+
+const xmax = 16.165;
+const ymax = 11.135;
 
 const Parois = () => (
   <g>
@@ -148,6 +151,10 @@ const SetupCompass = () => {
     </div>
   );
 };
+
+function normalize(min, max, val) {
+  return (val - min) / (max - min);
+}
 
 export default function CreatePlanSvg() {
   return (
