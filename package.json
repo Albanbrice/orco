@@ -1,7 +1,7 @@
 {
   "name": "orco",
   "version": "1.0.0",
-  "description": "Tomba dell'Orco",
+  "description": "Tomba",
   "keywords": ["archaeology"],
   "main": "src/index.js",
   "dependencies": {
