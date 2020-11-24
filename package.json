@@ -1,8 +1,8 @@
 {
   "name": "orco",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "Tomba dell'Orco",
+  "keywords": ["archaeology"],
   "main": "src/index.js",
   "dependencies": {
     "@react-three/drei": "2.2.7",
