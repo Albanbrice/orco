@@ -130,7 +130,7 @@ const SetupCompass = () => {
   const pos = useMemo(() => position, [position]);
 
   const camX = pos.x;
-  const camY = pos.y;
+  // const camY = pos.y;
   const camZ = pos.z;
 
   // console.log(position)

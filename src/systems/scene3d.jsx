@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
 import { Orco } from "../components/3d/3d";
 import { CameraControls } from "./controls";
+import { Lights } from "./lights";
 
 export default function Scene3D() {
   return (
@@ -13,6 +14,8 @@ export default function Scene3D() {
         fov: [50]
       }}
     >
+      {/* <ambientLight intensity={0.25} /> */}
+      <Lights />
       <CameraControls />
       <Suspense name="suspense" fallback={null}>
         <Orco />
