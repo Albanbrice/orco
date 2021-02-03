@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei/useGLTF";
-import { MeshStandardMaterial } from "three";
+import { MeshStandardMaterial, Vector3, Euler } from "three";
 
 function Orco(props) {
   const group = useRef();
@@ -10,7 +10,7 @@ function Orco(props) {
     metalness: 0,
     color: "moccasin",
     emissive: 0,
-    transparent: true,
+    transparent: false,
     opacity: 0.85
   });
   return (

@@ -3,6 +3,7 @@ import { Canvas } from "react-three-fiber";
 import { Orco } from "../components/3d/3d";
 import { CameraControls } from "./controls";
 import { Lights } from "./lights";
+import { Archive3D } from "../components/3d/archive3D";
 
 export default function Scene3D() {
   return (
@@ -19,6 +20,7 @@ export default function Scene3D() {
       <CameraControls />
       <Suspense name="suspense" fallback={null}>
         <Orco />
+        <Archive3D />
       </Suspense>
     </Canvas>
   );
