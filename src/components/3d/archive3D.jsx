@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { Vector3, Euler, MathUtils, Quaternion, TextureLoader } from "three";
 import { useLoader } from "react-three-fiber";
-import img from "../../assets/archives/Orco-04-0015.jpg";
+import img from "../../assets/archives/Orco-01-0002.jpg";
 
 let archiveData = require("../../assets/json/archives.json");
 
 const Archive3D = () => {
-  const archive = archiveData.find((arch) => arch.name === "Orco-04-0015");
+  const archive = archiveData.find((arch) => arch.name === "Orco-01-0002");
 
   const {
     X,
@@ -28,14 +28,24 @@ const Archive3D = () => {
   const ref = useRef();
 
   const pos = new Vector3(X, Z, -Y);
-  // const rot = new Euler(
-  //   Math.PI / 2 - MathUtils.degToRad(rotX),
-  //   MathUtils.degToRad(rotZ),
-  //   MathUtils.degToRad(-rotY),
-  //   "XYZ"
-  // );
 
   const rot = new Euler(
+    -MathUtils.degToRad(rotX) + Math.PI / 2,
+    MathUtils.degToRad(rotZ),
+    MathUtils.degToRad(rotY),
+    "XYZ"
+  );
+
+  // OK approx
+  const rot3 = new Euler(
+    Math.PI / 2 - MathUtils.degToRad(rotX),
+    MathUtils.degToRad(rotZ),
+    MathUtils.degToRad(-rotY),
+    "XYZ"
+  );
+
+  // OK pour PLAN
+  const rot2 = new Euler(
     //Math.PI / 2 - MathUtils.degToRad(rotX),
     //MathUtils.degToRad(rotZ),
     //MathUtils.degToRad(-rotY),
