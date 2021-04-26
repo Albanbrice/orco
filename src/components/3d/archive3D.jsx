@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Vector3, Euler, MathUtils, Quaternion, TextureLoader } from "three";
 import { useLoader } from "react-three-fiber";
-import img from "../../assets/archives/Orco-01-0001.jpg";
+import img from "../../assets/archives/Orco-04-0015.jpg";
 
 let archiveData = require("../../assets/json/archives.json");
 
 const Archive3D = () => {
-  const archive = archiveData[0];
+  const archive = archiveData.find((arch) => arch.name === "Orco-04-0015");
+
   const {
     X,
     Y,
@@ -24,18 +25,32 @@ const Archive3D = () => {
   let taille = size * scale;
   let ratio = height / width;
 
+  const ref = useRef();
+
   const pos = new Vector3(X, Z, -Y);
+  // const rot = new Euler(
+  //   Math.PI / 2 - MathUtils.degToRad(rotX),
+  //   MathUtils.degToRad(rotZ),
+  //   MathUtils.degToRad(-rotY),
+  //   "XYZ"
+  // );
+
   const rot = new Euler(
-    Math.PI / 2 - MathUtils.degToRad(rotX),
+    //Math.PI / 2 - MathUtils.degToRad(rotX),
+    //MathUtils.degToRad(rotZ),
+    //MathUtils.degToRad(-rotY),
+    -Math.PI / 2 + MathUtils.degToRad(rotX),
+    MathUtils.degToRad(rotY),
     MathUtils.degToRad(rotZ),
-    MathUtils.degToRad(-rotY),
     "XYZ"
   );
-  const quat = new Quaternion(0.238468, -0.665682, -0.680944, 0.190564);
+
+  // const quat = new Quaternion(0.238468, -0.665682, -0.680944, 0.190564);
   const archImg = useLoader(TextureLoader, img);
 
   return (
     <mesh
+      ref={ref}
       name={name}
       rotation={[rot.x, rot.y, rot.z]}
       position={[pos.x, pos.y, pos.z]}
@@ -44,8 +59,8 @@ const Archive3D = () => {
       <meshStandardMaterial
         attach="material"
         color="white"
-        transparent
-        opacity={0.5}
+        transparent={false}
+        opacity={1}
         map={archImg}
       />
     </mesh>
