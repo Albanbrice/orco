@@ -20,8 +20,8 @@ export default function Scene3D() {
       <Lights />
       <CameraControls />
       <Suspense name="suspense" fallback={null}>
-        {/* <Orco /> */}
-        <Orco_10K />
+        <Orco />
+        {/* <Orco_10K /> */}
         <Archive3D />
       </Suspense>
     </Canvas>
