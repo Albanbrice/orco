@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-const Orco_10K = () => {
+const Orco_10K = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF("/orco_10K.gltf");
   return (
