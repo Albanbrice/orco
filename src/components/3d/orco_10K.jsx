@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-const Orco_10K = (props) => {
+const Orco10K = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/orco_10K.gltf");
+  const { nodes, materials } = useGLTF("/models/orco_10K.gltf");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -22,6 +22,6 @@ const Orco_10K = (props) => {
   );
 };
 
-useGLTF.preload("/orco_10K.gltf");
+useGLTF.preload("/models/orco_10K.gltf");
 
-export default Orco_10K;
+export { Orco10K };
