@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { useFrame, extend, useThree } from "react-three-fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { useFrame, extend, useThree } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import { useStore } from "../store";
 
 extend({ OrbitControls });
@@ -17,7 +17,8 @@ const CameraControls = () => {
   const { setPosition } = useStore();
 
   useFrame((state) => {
-    setPosition(controls.current.object.position);
+    const pos = controls.current.object.position;
+    setPosition(pos);
     controls.current.update();
   });
 

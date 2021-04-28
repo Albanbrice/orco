@@ -1,27 +1,20 @@
 import React, { useRef } from "react";
-import { Vector3, Euler, MathUtils, Quaternion, TextureLoader } from "three";
+import { Vector3, Euler, MathUtils } from "three";
 import { useTexture } from "@react-three/drei";
-import img from "../../assets/archives/Orco-01-0002.jpg";
-import archiveData from "../../assets/json/archives.json";
+import { useStore } from "../../store";
+//import img from "../../assets/archives/Orco-01-0002.jpg";
+// import archiveData from "../../assets/json/archives.json";
 
-// let archiveData = require("../../assets/json/archives.json");
+let archiveData = require("../../assets/json/archives.json");
 
-const Archive3D = () => {
-  const archive = archiveData.find((arch) => arch.name === "Orco-01-0002");
+const Archive3D = (name) => {
+  //const archiveData = fetch("../../assets/json/archives.json").then((resp) => resp.json());
 
-  const {
-    X,
-    Y,
-    Z,
-    rotX,
-    rotY,
-    rotZ,
-    name,
-    size,
-    scale,
-    width,
-    height
-  } = archive;
+  console.log(archiveData[1]);
+  //const archiveData = useStore((state) => state.archives);
+  const archive = archiveData.find((arch) => arch.name === name);
+
+  const { X, Y, Z, rotX, rotY, rotZ, size, scale, width, height } = archive;
 
   let taille = size * scale;
   let ratio = height / width;
@@ -57,7 +50,7 @@ const Archive3D = () => {
   );
 
   // const quat = new Quaternion(0.238468, -0.665682, -0.680944, 0.190564);
-  const archImg = useTexture(img);
+  const archImg = useTexture(`../../assets/archives/${name}.jpg`);
 
   return (
     <mesh
