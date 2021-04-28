@@ -10,8 +10,8 @@ const useStore = create((set, get) => ({
       set({ orbitEnabled });
     }
   },
-  setPosition: (position) => set({ position }),
-  setDirection: (direction) => set({ direction })
+  setPosition: (position) => set({ position: position }),
+  setDirection: (direction) => set({ direction: direction })
 }));
 
 export { useStore };
